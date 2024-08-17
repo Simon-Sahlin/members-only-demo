@@ -4,7 +4,7 @@ const { Client } = require("pg");
 const SQL = `
 CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    username VARCHAR(255), 
+    username VARCHAR(255) 
 );
 
 INSERT INTO users (username) 
@@ -25,5 +25,8 @@ async function main() {
   await client.end();
   console.log("Done");
 }
+
+// Connection string example:
+// postgresql://<role_name>:<role_password>@<host>:<port>/<db_name>
 
 main();
