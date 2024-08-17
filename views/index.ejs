@@ -10,7 +10,7 @@
     <h1>Anonymous Message Board</h1>
     <p><%= locals.user ? "Welcome back "+user.first_name+"!" : "Logged out" %></p>
     <% locals.msgs.forEach(msg => { 
-        if (msg.membership_req < 1 || (user && user.membership_status >= msg.membership_req)) { %>
+        if (msg.membership_req == 0 || (user && user.membership_status >= msg.membership_req)) { %>
             <div class="message">
                 <h3><%= user ? msg.username: "Anonymous User" %></h3>
                 <h2><%= msg.title %></h2>
