@@ -11,8 +11,8 @@ async function getAllMessages(){
     return rows;
 }
 
-async function createMessage(title, content){
-    await db.query("INSERT INTO messages (title, content) VALUES ($1, $2)", [title, content]);
+async function createMessage(userId, title, content, premium){
+    await db.query("INSERT INTO messages (author_id, title, content, membership_req) VALUES ($1, $2, $3, $4)", [userId, title, content, premium ? 1 : 0]);
 }
 
 /* ---------------------------------- User ---------------------------------- */

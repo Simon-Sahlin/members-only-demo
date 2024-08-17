@@ -13,6 +13,10 @@
         <input type="text" id="title" name="title" required value=<%= locals.values.title %>>
         <label for="content">Message</label>
         <textarea id="content" name="content" rows="10" required value=<%= locals.values.content %>></textarea>
+        <% if (user.membership_status > 0) { %>
+            <label for="membership">Premium Access</label>
+            <input type="checkbox" name="membership" id="membership" <%= locals.values.isPremiumMember ? "checked" : "" %>>
+        <% } %>
         <%- include('./partials/errorList.ejs') %>
         <button type="submit">Submit</button>
     </form>
