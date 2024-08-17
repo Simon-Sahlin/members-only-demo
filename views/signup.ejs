@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sign up</title>
+</head>
+<body>
+    <h1>Sign up</h1>
+    <form action="/signup" method="post">
+        <label for="fName">First name</label>
+        <input type="text" id="fName" name="fName"  value=<%= locals.values.fName %>>
+        <label for="lName">Last name</label>
+        <input type="text" id="lName" name="lName"  value=<%= locals.values.lName %>>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username"  value=<%= locals.values.username %>>
+        <label for="password">Password</label>
+        <input type="text" id="password" name="password"  value=<%= locals.values.password %>>
+        <label for="passwordConf">Confirm password</label>
+        <input type="text" id="passwordConf" name="passwordConf"  value=<%= locals.values.passwordConf %>>
+        <label for="membership">Premium Access</label>
+        <input type="checkbox" name="membership" id="membership" <%= locals.values.isPremiumMember ? "checked" : "" %>>
+        <%- include('./partials/errorList.ejs') %>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

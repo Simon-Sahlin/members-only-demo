@@ -23,3 +23,19 @@ body{
     padding: 16px;
     gap: 16px;
 }
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea{
+    margin-bottom: 1em;
+    padding: 0.5em;
+    border-radius: 8px;
+    border: 2px solid lightblue;
+}
+
+textarea { 
+    resize: vertical;
+}

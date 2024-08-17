@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Anonymous Message Board</h1>
-    <p>Logged Out</p>
+    <p><%= locals.user ? "Welcome back "+user.first_name+"!" : "Logged out" %></p>
     <% locals.msgs.forEach(msg => {%>
         <div class="message">
             <h3><%= msg.author_id %></h3>
@@ -17,7 +17,8 @@
         </div>
     <% }) %>
     <div id="links">
-        <a href="">Create Message</a>
+        <a href="/newMessage">Create Message</a>
+        <a href="/Logout">Log out</a>
     </div>
 </body>
 </html>
