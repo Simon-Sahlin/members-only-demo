@@ -12,12 +12,16 @@ async function getAllMessages(){
 }
 
 async function getAllMessagesWithAuthors(){
-    const { rows } = await db.query("SELECT a.*, b.id, b.username FROM messages a JOIN users b ON a.author_id = b.id");
+    const { rows } = await db.query("SELECT a.*, b.username FROM messages a JOIN users b ON a.author_id = b.id");
     return rows;
 }
 
 async function createMessage(userId, title, content, premium){
     await db.query("INSERT INTO messages (author_id, title, content, membership_req) VALUES ($1, $2, $3, $4)", [userId, title, content, premium ? 1 : 0]);
+}
+
+async function deleteMessage(id){
+    await db.query("DELETE FROM messages WHERE id=$1", [id]);
 }
 
 /* ---------------------------------- User ---------------------------------- */
@@ -33,7 +37,7 @@ async function getUserWhere(userId){
 }
 
 async function createUser(fName, lName, username, password, premium){
-    await db.query("INSERT INTO users (first_name, last_name, username, password_digest, membership_status) VALUES ($1,$2,$3,$4,$5)", [fName, lName, username, password, premium ? 1 : 0]);
+    await db.query("INSERT INTO users (first_name, last_name, username, password_digest, membership_status, admin_status) VALUES ($1,$2,$3,$4,$5)", [fName, lName, username, password, premium ? 1 : 0, 0]);
 }
 
 /* ------------------------------------ - ----------------------------------- */
@@ -44,5 +48,6 @@ module.exports = {
     createMessage,
     createUser,
     getUserFromUsername,
-    getUserWhere
+    getUserWhere,
+    deleteMessage
 }

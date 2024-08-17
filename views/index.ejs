@@ -15,6 +15,10 @@
                 <h3><%= user ? msg.username: "Anonymous User" %></h3>
                 <h2><%= msg.title %></h2>
                 <p><%= msg.content %></p>
+                <form action="/deleteMessage" method="post">
+                    <input type="text" id="postId" name="postId" hidden value="<%= msg.id %>">
+                    <button type="submit">Delete Message</button>
+                </form>
             </div>
         <% } 
     }) %>

@@ -38,7 +38,16 @@ router.post("/newMessage", [validateMessage, async (req, res) => {
     res.redirect("/");
 }]);
 
-/* ------------------------------------ - ----------------------------------- */
+/* ------------------------------------ D ----------------------------------- */
 
+router.post("/deleteMessage", async (req, res) => {
+    const { postId } = req.body;
+
+    await db.deleteMessage(postId);
+
+    res.redirect("/");
+});
+
+/* ------------------------------------ - ----------------------------------- */
 
 module.exports = router;
