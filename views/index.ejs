@@ -9,28 +9,13 @@
 <body>
     <h1>Anonymous Message Board</h1>
     <p>Logged Out</p>
-    <% //locals.msgs.forEach(msg => {%>
+    <% locals.msgs.forEach(msg => {%>
         <div class="message">
-            <h3>Author</h3>
-            <h2>Title!</h2>
-            <p>Message here! ayo!</p>
+            <h3><%= msg.author_id %></h3>
+            <h2><%= msg.title %></h2>
+            <p><%= msg.content %></p>
         </div>
-    <% //}) %>
-    <div class="message">
-        <h3>Author</h3>
-        <h2>Title!</h2>
-        <p>Message here! ayo!</p>
-    </div>
-    <div class="message">
-        <h3>Author</h3>
-        <h2>Title!</h2>
-        <p>Message here! ayo!</p>
-    </div>
-    <div class="message">
-        <h3>Author</h3>
-        <h2>Title!</h2>
-        <p>Message here! ayo!</p>
-    </div>
+    <% }) %>
     <div id="links">
         <a href="">Create Message</a>
     </div>

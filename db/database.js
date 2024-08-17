@@ -6,12 +6,13 @@ let db = new Pool({
 
 /* ------------------------------------ - ----------------------------------- */
 
-async function getAllUsers(){
-    const { rows } = await db.query("SELECT * FROM users")
+async function getAllMessages(){
+    const { rows } = await db.query("SELECT * FROM messages")
+    return rows;
 }
 
 /* ------------------------------------ - ----------------------------------- */
 
 module.exports = {
-    getAllUsers
+    getAllMessages
 }
