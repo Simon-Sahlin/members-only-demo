@@ -37,7 +37,7 @@ async function getUserWhere(userId){
 }
 
 async function createUser(fName, lName, username, password, premium){
-    await db.query("INSERT INTO users (first_name, last_name, username, password_digest, membership_status, admin_status) VALUES ($1,$2,$3,$4,$5)", [fName, lName, username, password, premium ? 1 : 0, 0]);
+    await db.query("INSERT INTO users (first_name, last_name, username, password_digest, membership_status, admin_status) VALUES ($1,$2,$3,$4,$5,$6)", [fName, lName, username, password, premium ? 1 : 0, 0]);
 }
 
 /* ------------------------------------ - ----------------------------------- */
