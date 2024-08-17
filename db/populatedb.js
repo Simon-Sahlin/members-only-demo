@@ -4,15 +4,22 @@ const { Client } = require("pg");
 const SQL = `
 CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    username VARCHAR(255) 
+    first_name VARCHAR (255),
+    last_name VARCHAR (255),
+    username VARCHAR (255),
+    password_digest VARCHAR (255),
+    membership_status INT,
+    admin_status INT
 );
 
-INSERT INTO users (username) 
-VALUES 
-    ('Simon'),
-    ('Selma'),
-    ('Dory')
-;
+CREATE TABLE IF NOT EXISTS messages (
+    id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    author_id INT,
+    title VARCHAR (255),
+    content VARCHAR (255),
+    membership_req INT
+);
+
 `;
 
 async function main() {
