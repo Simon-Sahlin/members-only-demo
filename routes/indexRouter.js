@@ -7,7 +7,7 @@ const db = require("../db/database")
 /* ---------------------------------- Index --------------------------------- */
 
 router.get("/", async (req, res) => {
-    const msgs = await db.getAllMessages();
+    const msgs = await db.getAllMessagesWithAuthors();
     res.render("index", {msgs, user: req.user});
 });
 

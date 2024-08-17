@@ -11,6 +11,11 @@ async function getAllMessages(){
     return rows;
 }
 
+async function getAllMessagesWithAuthors(){
+    const { rows } = await db.query("SELECT a.*, b.id, b.username FROM messages a JOIN users b ON a.author_id = b.id");
+    return rows;
+}
+
 async function createMessage(userId, title, content, premium){
     await db.query("INSERT INTO messages (author_id, title, content, membership_req) VALUES ($1, $2, $3, $4)", [userId, title, content, premium ? 1 : 0]);
 }
@@ -35,6 +40,7 @@ async function createUser(fName, lName, username, password, premium){
 
 module.exports = {
     getAllMessages,
+    getAllMessagesWithAuthors,
     createMessage,
     createUser,
     getUserFromUsername,
