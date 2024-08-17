@@ -16,9 +16,9 @@
         <label for="username">Username</label>
         <input type="text" id="username" name="username"  value=<%= locals.values.username %>>
         <label for="password">Password</label>
-        <input type="text" id="password" name="password"  value=<%= locals.values.password %>>
+        <input type="password" id="password" name="password"  value=<%= locals.values.password %>>
         <label for="passwordConf">Confirm password</label>
-        <input type="text" id="passwordConf" name="passwordConf"  value=<%= locals.values.passwordConf %>>
+        <input type="password" id="passwordConf" name="passwordConf"  value=<%= locals.values.passwordConf %>>
         <label for="membership">Premium Access</label>
         <input type="checkbox" name="membership" id="membership" <%= locals.values.isPremiumMember ? "checked" : "" %>>
         <%- include('./partials/errorList.ejs') %>
